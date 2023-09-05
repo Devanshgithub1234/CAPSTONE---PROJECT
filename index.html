@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <title>CAPSTONE PROJECT</title>
+    <style>
+        body{
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <nav class = "navbar navbar-dark bg-dark text-white">
+        <h3>TITANIC SURVIVING CLASSIFICATION</h3>
+    </nav>
+
+    <div class = "container p-3 my-3 bg-secondary text-white">
+        {% with messages = get_flashed_messages(with_categories = true )%}
+            {% if messages %}
+                {% for category , i in messages %}
+                    <div class = "alert alert-{{category}}">
+                        {{i}}
+                    </div>
+                {% endfor%}
+            {% endif %}
+        {% endwith%}
+
+        <form class = "form-group" method = "POST" action = "/">
+            <label for = "pclass">PASSENGER CLASS : </label>
+            <input list = "Passenger" name="pclass" class = "form-control">
+                <datalist id="Passenger" class="dropdown-menu">
+                    <option value = "1" class = "dropdown-item">
+                    <option value = "2" class = "dropdown-item">
+                    <option value = "3" class = "dropdown-item">
+                </datalist>
+            <br>
+            <label for = "age"> AGE :</label>
+            <input class = "form-control" name = "age" type = "number">
+            <br>
+
+            <input type = "radio" id = "male" name = "gender" value = "male">
+            <label for = "male"> MALE</label>
+            
+            <br>
+
+            <input type = "radio" id = "female" name = "gender" value = "female">
+            <label for = "female"> FEMALE</label>
+            
+            <br>
+            <button class = "btn btn-dark" type = "submit">SUBMIT</button>        
+        </form>
+    </div>
+
+    <div class = "container">
+        <div class = "card">
+            <img class = "card-img-top" src = "https://live.staticflickr.com/7258/7569794708_7a70ee22c0_b.jpg">
+            <div class = "card-body">
+                <h5 class = "card-title">
+                    RMS TITANIC
+                </h5>
+                <p class ="card-text">
+                    RMS Titanic was a British passenger liner, operated by the White Star Line, that sank in the North Atlantic Ocean on 15 April 1912 after striking an iceberg during her maiden voyage from Southampton, England to New York City, United States. Of the estimated 2,224 passengers and crew aboard, more than 1,500 died, making it the deadliest sinking of a single ship up to that time.[a] It remains the deadliest peacetime sinking of an ocean liner or cruise ship.[4] The disaster drew public attention, provided foundational material for the disaster film genre, and has inspired many artistic works.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
